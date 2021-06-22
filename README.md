@@ -43,7 +43,7 @@
 
 ## ⚙️ Funcionalidades
 
-:heavy_check_mark: DevQuiz  
+:heavy_check_mark: PayFlow  
   
 ---
 
