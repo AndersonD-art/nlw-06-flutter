@@ -1,4 +1,4 @@
-<h1>DEVQUIZ - NLW Trilha Flutter</h1> 
+<h1>PayFlow - NLW_6 Trilha Flutter</h1> 
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=dart&message=language&color=blue&style=for-the-badge&logo=DART"/>  
