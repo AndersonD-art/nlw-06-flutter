@@ -25,6 +25,12 @@ class AuthController {
     return;
   }
 
+  Future<void> delUser() async {
+    final instance = await SharedPreferences.getInstance();
+    instance.clear();
+    return;
+  }
+
   Future<void> currentUser(BuildContext context) async {
     final instance = await SharedPreferences.getInstance();
     await Future.delayed(Duration(seconds: 2));

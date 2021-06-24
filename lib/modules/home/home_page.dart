@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/modules/login/login_controller.dart';
+import 'package:payflow/shared/auth/auth_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 
@@ -22,37 +24,63 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    final authController = AuthController();
+    final loginController = LoginController();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(152),
         child: Container(
           height: 152,
           color: AppColors.primary,
-          child: Center(
-            child: ListTile(
-              title: Text.rich(
-                TextSpan(
-                  text: "Olá, ",
-                  style: TextStyles.titleRegular,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ListTile(
+                title: Text.rich(
+                  TextSpan(
+                    text: "Olá, ",
+                    style: TextStyles.titleRegular,
+                    children: [
+                      TextSpan(
+                        text: "David",
+                        style: TextStyles.titleBoldBackground,
+                      ),
+                    ],
+                  ),
+                ),
+                subtitle: Text(
+                  "Mantenha suas contas em dias",
+                  style: TextStyles.captionBoldShape,
+                ),
+                trailing: Container(
+                  height: 48,
+                  width: 48,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    TextSpan(
-                        text: "David", style: TextStyles.titleBoldBackground),
+                    GestureDetector(
+                      onTap: () {
+                        loginController.handleSignOut();
+                        authController.delUser();
+                        Navigator.pushReplacementNamed(context, "/login");
+                      },
+                      child: Text(
+                        "Sair",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
                   ],
                 ),
               ),
-              subtitle: Text(
-                "Mantenha suas contas em dias",
-                style: TextStyles.captionBoldShape,
-              ),
-              trailing: Container(
-                height: 48,
-                width: 48,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-            ),
+            ],
           ),
         ),
       ),
