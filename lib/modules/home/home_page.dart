@@ -4,6 +4,7 @@ import 'package:payflow/modules/login/login_controller.dart';
 import 'package:payflow/shared/auth/auth_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
+import 'package:payflow/shared/widgets/boleto_list/boleto_list_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final controller = HomeController();
   final pages = [
     Container(
-      color: Colors.red,
+      child: BoletoListWidget(),
     ),
     Container(
       color: Colors.blue,
