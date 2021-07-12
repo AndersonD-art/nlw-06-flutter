@@ -38,15 +38,56 @@ class _BoletoTileWidgetState extends State<BoletoTileWidget> {
             color: Colors.red,
             icon: Icons.delete,
             onTap: () async {
-              await controller.delBoleto(widget.data.name, widget.data.dueDate,
-                  widget.data.value, widget.data.barcode);
+              await showDialog(
+                context: context,
+                builder: (_) => AlertDialog(
+                  title: Text(
+                      "Deseja realmente excluir o boleto - ${widget.data.name}?"),
+                  content: Text("${widget.data.name}"),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "No",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        await controller.delBoleto(
+                            widget.data.name,
+                            widget.data.dueDate,
+                            widget.data.value,
+                            widget.data.barcode);
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Yes",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ],
+                  elevation: 24.0,
+                  backgroundColor: Colors.orange,
+                ),
+              );
+
               setState(() {});
             },
           ),
         ],
         actionExtentRatio: 0.25,
         child: ListTile(
-          //contentPadding: EdgeInsets.zero,
+          contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
           title: Text(
             widget.data.name!,
             style: TextStyles.titleListTile,
