@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/modules/extract/extract_page.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/modules/insert_boleto/insert_boleto_page.dart';
 import 'package:payflow/modules/login/login_controller.dart';
 import 'package:payflow/modules/my_boletos/my_boletos_page.dart';
 import 'package:payflow/shared/auth/auth_controller.dart';
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
     MyBoletosPage(),
     ExtractPage(),
   ];
+
+  final update = InsertBoletoPage();
 
   @override
   Widget build(BuildContext context) {
@@ -110,9 +113,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             GestureDetector(
-              onTap: () async {
-                await Navigator.pushNamed(context, "/barcode_scanner");
-                setState(() {});
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/barcode_scanner", (route) => false);
               },
               child: Container(
                 width: 56,

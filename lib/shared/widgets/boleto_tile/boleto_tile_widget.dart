@@ -28,13 +28,13 @@ class _BoletoTileWidgetState extends State<BoletoTileWidget> {
         actionPane: SlidableScrollActionPane(),
         actions: [
           IconSlideAction(
-            caption: 'Close',
+            caption: 'Fechar',
             color: Colors.black45,
             icon: Icons.close,
             onTap: () {},
           ),
           IconSlideAction(
-            caption: 'Delete',
+            caption: 'Deletar',
             color: Colors.red,
             icon: Icons.delete,
             onTap: () async {
