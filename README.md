@@ -107,4 +107,4 @@ Um super thanks 👏 para gabuldev e equipe Rocketseat.
 
 The [MIT License](https://github.com/AndersonD-art/my_notes/commit/35c9075d739ff16ac14b7b0a8850c2489014c3e0)(MIT)
 
-Copyright :copyright: 2021 - My Notes
+Copyright :copyright: 2021 - PayFlow
